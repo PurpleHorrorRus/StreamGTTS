@@ -16,7 +16,7 @@ Stream audio
 ```javascript
 import TTS from "stream-gtts";
 const TTSClient = new TTS("en");
-const stream = TTSClient.stream("Hello World!");
+const stream = await TTSClient.stream("Hello World!");
 ```
 
 Save to file
