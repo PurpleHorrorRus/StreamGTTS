@@ -1,0 +1,6 @@
+﻿node_modules
+yarn-error.log
+test.mp3
+test.js
+.eslintrc.json
+yarn.lock
