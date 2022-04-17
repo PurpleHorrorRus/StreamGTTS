@@ -4,7 +4,7 @@ const Promise = require("bluebird");
 const multistream = require("multistream");
 
 // eslint-disable-next-line no-useless-escape
-const regex = /[¡!\(\)\[\]¿?.,;:—«»\n]/;
+const regex = /[^\.!\?]+[\.!\?]+["']?|.+$/g;
 
 class GoogleTTS {
     constructor(language = "en") {
@@ -59,9 +59,9 @@ class GoogleTTS {
     }
 
     tokenize(text) {
-        return text.split(regex).filter(p => {
-            return p.length > 0;
-        })
+        const match = text.matchAll(regex);
+        const parts = Array.from(match).flat();
+        return parts.map(part => part.trim());
     }
 }
 
